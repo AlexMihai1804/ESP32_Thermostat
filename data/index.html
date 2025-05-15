@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistem de Încălzire Inteligentă</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Include SweetAlert2 pentru mesaje personalizate -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <!-- Include flatpickr pentru selecția datei și orei -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+</head>
+<body>
+<header>
+    <h1>Sistem de Încălzire Inteligentă</h1>
+    <button id="toggle-theme" aria-label="Comută tema">🌙</button>
+</header>
+
+<main>
+    <!-- Secțiunea de Control Încălzire -->
+    <section id="heating-controls" class="card">
+        <h2>Control Încălzire</h2>
+        <div class="mode-display">
+            <p id="heating-mode-display">Mod Încălzire: </p>
+        </div>
+        <div class="select-container">
+            <label for="heating-mode-select">Selectați modul de încălzire:</label>
+            <select id="heating-mode-select">
+                <option value="AUTO">Automat</option>
+                <option value="MANUAL">Manual</option>
+                <option value="OFF">Oprit</option>
+            </select>
+        </div>
+
+        <div id="manual-controls" class="manual-controls hidden">
+            <h3>Control Manual</h3>
+            <div class="mode-display">
+                <p id="manual-mode-display">Mod Manual: </p>
+            </div>
+            <div class="buttons">
+                <button id="set-manual-on" class="btn btn-primary">Pornit</button>
+                <button id="set-manual-off" class="btn btn-secondary">Oprit</button>
+            </div>
+        </div>
+
+        <div class="relay-status">
+            <p id="relay-status">Stare Releu: </p>
+        </div>
+    </section>
+
+    <!-- Secțiunea de Programare Încălzire -->
+    <section id="schedule-section" class="card">
+        <h2>Programare Încălzire</h2>
+        <div class="schedule-buttons">
+            <button id="get-home-now-btn" class="btn btn-primary">Acasă Acum</button>
+            <button id="leave-now-btn" class="btn btn-secondary">Pleacă Acum</button>
+            <button id="get-home-at-time-btn" class="btn btn-primary">Acasă la Ora...</button>
+            <button id="leave-at-time-btn" class="btn btn-secondary">Pleacă la Ora...</button>
+            <button id="edit-schedule-btn" class="btn btn-add">Editează Programul</button>
+            <button id="view-schedule-btn" class="btn btn-view">Vizualizează Programul</button>
+        </div>
+    </section>
+
+    <!-- Secțiunea de Camere -->
+    <section id="rooms-section" class="card">
+        <div class="section-header">
+            <h2>Camere</h2>
+            <button id="add-room-btn" class="btn btn-add">Adaugă Cameră</button>
+        </div>
+        <div id="rooms-container" class="rooms-container">
+            <!-- Camerele vor fi încărcate aici -->
+        </div>
+    </section>
+</main>
+
+<!-- Popup pentru setările camerei -->
+<div id="room-settings-popup" class="popup hidden" aria-hidden="true">
+    <div class="popup-content">
+        <button id="close-popup-btn" class="btn btn-close" aria-label="Închide popup">✖️</button>
+        <div id="popup-inner-content">
+            <!-- Conținutul va fi încărcat dinamic -->
+        </div>
+    </div>
+</div>
+
+<!-- Popup pentru setarea timpului -->
+<div id="time-settings-popup" class="popup hidden" aria-hidden="true">
+    <div class="popup-content">
+        <button id="close-time-popup-btn" class="btn btn-close" aria-label="Închide popup">✖️</button>
+        <div id="time-popup-inner-content">
+            <!-- Conținutul va fi încărcat dinamic -->
+        </div>
+    </div>
+</div>
+
+<!-- Popup pentru editarea programului -->
+<div id="schedule-edit-popup" class="popup hidden" aria-hidden="true">
+    <div class="popup-content">
+        <button id="close-schedule-edit-popup-btn" class="btn btn-close" aria-label="Închide popup">✖️</button>
+        <div id="schedule-edit-popup-inner-content">
+            <!-- Conținutul pentru editarea programului va fi încărcat dinamic -->
+        </div>
+    </div>
+</div>
+
+<!-- Popup pentru vizualizarea programului -->
+<div id="schedule-view-popup" class="popup hidden" aria-hidden="true">
+    <div class="popup-content">
+        <button id="close-schedule-popup-btn" class="btn btn-close" aria-label="Închide popup">✖️</button>
+        <div id="schedule-popup-inner-content">
+            <!-- Conținutul pentru vizualizarea programului va fi încărcat dinamic -->
+        </div>
+    </div>
+</div>
+
+<!-- Scripturi JavaScript -->
+<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+<script src="utilities.js"></script>
+<script src="heatingControls.js"></script>
+<script src="roomControls.js"></script>
+<script src="scheduleControls.js"></script>
+<script src="script.js"></script>
+</body>
+</html>

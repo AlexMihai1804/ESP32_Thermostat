@@ -1,0 +1,621 @@
+/* Reset și stiluri de bază */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+    transition: background-color 0.3s, color 0.3s;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+header {
+    background-color: #4CAF50;
+    color: #fff;
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header h1 {
+    font-size: 1.5rem;
+}
+
+#toggle-theme {
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+main {
+    flex: 1;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.card {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.rooms-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.room {
+    background-color: #fafafa;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 15px;
+    width: 100%;
+    max-width: 300px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    transition: transform 0.2s;
+}
+
+.room:hover {
+    transform: translateY(-5px);
+}
+
+.room h2 {
+    font-size: 1.2rem;
+    color: #4CAF50;
+}
+
+.room p {
+    font-size: 1rem;
+}
+
+.room-settings-btn {
+    align-self: flex-start;
+    padding: 8px 12px;
+    background-color: #4CAF50;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.room-settings-btn:hover {
+    background-color: #45a049;
+}
+
+.buttons {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.btn {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    font-size: 0.9rem;
+    color: #fff;
+    flex: 1 1 calc(50% - 20px);
+    max-width: calc(50% - 20px);
+}
+
+.btn:hover {
+    opacity: 0.9;
+}
+
+.btn-add {
+    background-color: #2196F3;
+}
+
+.btn-view {
+    background-color: #17A2B8;
+}
+
+.btn-close {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: #333;
+}
+
+.btn-close:hover {
+    color: #f44336;
+}
+
+.btn-primary {
+    background-color: #FF9800;
+}
+
+.btn-secondary {
+    background-color: #f44336;
+}
+
+.manual-controls {
+    margin-top: 20px;
+}
+
+.mode-display p {
+    font-size: 1rem;
+    margin-bottom: 10px;
+}
+
+.select-container {
+    margin: 15px 0;
+}
+
+.select-container label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.select-container select {
+    width: 100%;
+    padding: 10px 15px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    font-size: 1rem;
+}
+
+.relay-status {
+    margin-top: 20px;
+}
+
+.popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.popup-content {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 8px;
+    position: relative;
+    width: 90%;
+    max-width: 800px;
+    max-height: 90vh;
+    overflow-y: auto;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.popup-content h2,
+.popup-content h3 {
+    margin-bottom: 15px;
+}
+
+.popup-content label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.popup-content input[type="number"],
+.popup-content input[type="text"] {
+    width: 100%;
+    padding: 8px 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.popup-content button {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    font-size: 0.9rem;
+    color: #fff;
+}
+
+.popup-content .buttons {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-top: 20px;
+    justify-content: center;
+}
+
+.thermometers-section input[type="text"] {
+    margin-top: 10px;
+}
+
+.delete-thermometer-btn {
+    background-color: #f44336;
+    color: #fff;
+    padding: 5px 8px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.8rem;
+}
+
+.delete-thermometer-btn:hover {
+    background-color: #d32f2f;
+}
+
+.hidden {
+    display: none;
+}
+
+/* Dark Mode Styles */
+.dark-mode {
+    background-color: #121212;
+    color: #e0e0e0;
+}
+
+.dark-mode header {
+    background-color: #1f1f1f;
+}
+
+.dark-mode .card {
+    background-color: #1e1e1e;
+    border-color: #333;
+}
+
+.dark-mode .room {
+    background-color: #2c2c2c;
+    border-color: #444;
+}
+
+.dark-mode .btn-add {
+    background-color: #03A9F4;
+}
+
+.dark-mode .btn-view {
+    background-color: #0288D1;
+}
+
+.dark-mode .btn-close {
+    color: #fff;
+}
+
+.dark-mode .btn-close:hover {
+    color: #f44336;
+}
+
+.dark-mode .btn-primary {
+    background-color: #FFB300;
+}
+
+.dark-mode .btn-secondary {
+    background-color: #E53935;
+}
+
+.dark-mode .delete-thermometer-btn {
+    background-color: #E53935;
+}
+
+.dark-mode .popup-content {
+    background-color: #2c2c2c;
+    color: #e0e0e0;
+}
+
+.dark-mode .popup-content input[type="number"],
+.dark-mode .popup-content input[type="text"] {
+    background-color: #3a3a3a;
+    border-color: #555;
+    color: #fff;
+}
+
+.dark-mode .select-container select {
+    background-color: #3a3a3a;
+    border-color: #555;
+    color: #fff;
+}
+
+.dark-mode .btn-add:hover,
+.dark-mode .btn-primary:hover,
+.dark-mode .btn-secondary:hover {
+    opacity: 0.9;
+}
+
+/* Stiluri pentru SweetAlert2 */
+.swal2-popup {
+    font-size: 1rem !important;
+}
+
+/* Stiluri pentru Schedule Controls */
+.schedule-buttons {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.schedule-buttons .btn {
+    flex: none;
+    width: 100%;
+}
+
+@media (min-width: 768px) {
+    .schedule-buttons {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 480px) {
+    .schedule-buttons {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Stiluri pentru Popup-ul de Vizualizare Program */
+.schedule-view-popup .popup-content {
+    max-width: 900px;
+}
+
+.schedule-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.schedule-table th,
+.schedule-table td {
+    border: 1px solid #ccc;
+    padding: 8px;
+    text-align: center;
+}
+
+.schedule-table th {
+    background-color: #f4f4f4;
+}
+
+.schedule-table td {
+    font-size: 0.9rem;
+}
+
+.dark-mode .schedule-table th {
+    background-color: #2c2c2c;
+}
+
+.dark-mode .schedule-table th,
+.dark-mode .schedule-table td {
+    border-color: #555;
+}
+
+/* Stiluri pentru Popup-ul de Editare Program */
+.schedule-edit-popup .popup-content {
+    max-width: 1000px;
+}
+
+.schedule-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 5px;
+}
+
+.schedule-grid .day-column {
+    display: flex;
+    flex-direction: column;
+}
+
+.schedule-grid .day-header {
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 5px;
+}
+
+.schedule-grid .time-slot {
+    border: 1px solid #ccc;
+    padding: 5px;
+    text-align: center;
+    cursor: pointer;
+    user-select: none;
+    position: relative;
+    background-color: #f0f0f0;
+}
+
+.schedule-grid .time-slot.selected {
+    outline: 2px solid #FFD700;
+}
+
+.schedule-grid .time-slot::before {
+    content: attr(data-time);
+    position: absolute;
+    top: 2px;
+    left: 5px;
+    font-size: 0.7rem;
+    color: #555;
+}
+
+.schedule-grid .time-slot.mode-HOME {
+    background-color: #4CAF50;
+    color: #fff;
+}
+
+.schedule-grid .time-slot.mode-AWAY {
+    background-color: #FF9800;
+    color: #fff;
+}
+
+.schedule-grid .time-slot.mode-NIGHT {
+    background-color: #2196F3;
+    color: #fff;
+}
+
+.schedule-grid .time-slot.mode-ANTIFREEZE {
+    background-color: #9E9E9E;
+    color: #fff;
+}
+
+.dark-mode .schedule-grid .time-slot {
+    border-color: #555;
+    background-color: #2c2c2c;
+    color: #e0e0e0;
+}
+
+.dark-mode .schedule-grid .time-slot.mode-HOME {
+    background-color: #388E3C;
+}
+
+.dark-mode .schedule-grid .time-slot.mode-AWAY {
+    background-color: #F57C00;
+}
+
+.dark-mode .schedule-grid .time-slot.mode-NIGHT {
+    background-color: #1976D2;
+}
+
+.dark-mode .schedule-grid .time-slot.mode-ANTIFREEZE {
+    background-color: #757575;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .rooms-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .room {
+        max-width: 100%;
+    }
+
+    .popup-content {
+        width: 95%;
+        padding: 20px;
+    }
+
+    header h1 {
+        font-size: 1.2rem;
+    }
+
+    #toggle-theme {
+        font-size: 1.2rem;
+    }
+
+    .schedule-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .schedule-grid .time-slot {
+        font-size: 0.8rem;
+        padding: 3px;
+    }
+
+    .schedule-grid .day-header {
+        font-size: 0.9rem;
+    }
+}
+
+/* Stiluri pentru Schedule Grid */
+.schedule-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 5px;
+}
+
+.schedule-grid .day-column {
+    display: flex;
+    flex-direction: column;
+}
+
+.schedule-grid .day-header {
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 5px;
+}
+
+.schedule-grid .time-slot {
+    border: 1px solid #ccc;
+    padding: 5px;
+    text-align: center;
+    cursor: pointer;
+    user-select: none;
+    position: relative;
+    background-color: #f0f0f0;
+}
+
+.schedule-grid .time-slot.selected {
+    outline: 2px solid #FFD700;
+}
+
+.schedule-grid .time-slot::before {
+    content: attr(data-time);
+    position: absolute;
+    top: 2px;
+    left: 5px;
+    font-size: 0.7rem;
+    color: #555;
+}
+
+.schedule-grid .time-slot.mode-HOME {
+    background-color: #4CAF50;
+    color: #fff;
+}
+
+.schedule-grid .time-slot.mode-AWAY {
+    background-color: #FF9800;
+    color: #fff;
+}
+
+.schedule-grid .time-slot.mode-NIGHT {
+    background-color: #2196F3;
+    color: #fff;
+}
+
+.schedule-grid .time-slot.mode-ANTIFREEZE {
+    background-color: #9E9E9E;
+    color: #fff;
+}
+
+.dark-mode .schedule-grid .time-slot {
+    border-color: #555;
+    background-color: #2c2c2c;
+    color: #e0e0e0;
+}
+
+.dark-mode .schedule-grid .time-slot.mode-HOME {
+    background-color: #388E3C;
+}
+
+.dark-mode .schedule-grid .time-slot.mode-AWAY {
+    background-color: #F57C00;
+}
+
+.dark-mode .schedule-grid .time-slot.mode-NIGHT {
+    background-color: #1976D2;
+}
+
+.dark-mode .schedule-grid .time-slot.mode-ANTIFREEZE {
+    background-color: #757575;
+}

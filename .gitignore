@@ -1,0 +1,5 @@
+.pio
+/src/wifi_credentials.h
+
+# Wi-Fi credentials (keep secrets out of VCS)
+src/wifi_credentials.h
